@@ -307,8 +307,9 @@ export default function Index() {
 
           <Card className="border-none shadow-xl bg-card">
             <CardContent className="p-8 md:p-12">
-              <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+              <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
                 <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
                 <div>
                   <label className="block text-sm font-light text-foreground mb-2">
                     Full Name *
