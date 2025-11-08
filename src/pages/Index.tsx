@@ -86,7 +86,7 @@ This message was sent from your therapy website contact form.
             <img 
               src={logo} 
               alt="We Care Mental Health Counselling Logo" 
-              className="w-32 h-32 mx-auto mb-8"
+              className="w-48 h-48 mx-auto mb-8"
             />
           </div>
           
@@ -94,7 +94,7 @@ This message was sent from your therapy website contact form.
             <span className="block text-care-blue-light font-medium">
               We Care
             </span>
-            <span className="block mt-2 font-light text-foreground">
+            <span className="block mt-2 text-3xl md:text-5xl font-light text-foreground">
               Mental Health Counselling
             </span>
           </h1>
@@ -257,7 +257,7 @@ This message was sent from your therapy website contact form.
               </p>
             </div>
             <div className="p-6">
-              <div className="text-5xl mb-4">💚</div>
+              <div className="text-5xl mb-4">💙</div>
               <h3 className="text-lg font-medium text-foreground mb-2">Compassionate</h3>
               <p className="text-muted-foreground font-light text-sm">
                 A non-judgmental space where you can be yourself
@@ -351,7 +351,7 @@ This message was sent from your therapy website contact form.
           <Card className="border-none shadow-xl bg-card">
             <CardContent className="p-8 md:p-12">
               {submitSuccess && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 text-center">
+                <div className="mb-6 p-4 bg-care-blue/10 border border-care-blue/20 rounded-lg text-care-blue-dark text-center">
                   Thank you for reaching out! I'll get back to you within 24-48 hours.
                 </div>
               )}
