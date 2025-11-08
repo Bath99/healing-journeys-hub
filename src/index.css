@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 30 10% 20%;
 
-    --primary: 100 15% 56%;
+    --primary: 201 78% 26%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 36 30% 94%;
@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 36 20% 94%;
     --muted-foreground: 30 8% 46%;
 
-    --accent: 100 15% 56%;
+    --accent: 201 78% 26%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,14 +34,14 @@ All colors MUST be HSL.
 
     --border: 30 15% 88%;
     --input: 30 15% 88%;
-    --ring: 100 15% 56%;
+    --ring: 201 78% 26%;
 
     --radius: 1rem;
 
     /* Custom therapy theme colors */
-    --sage: 100 15% 56%;
-    --sage-light: 100 20% 66%;
-    --sage-dark: 100 15% 46%;
+    --care-blue: 201 78% 26%;
+    --care-blue-light: 201 60% 40%;
+    --care-blue-dark: 201 78% 20%;
     --cream: 36 30% 94%;
     --warm-gray: 0 0% 24%;
     --gold: 40 40% 60%;
@@ -66,7 +66,7 @@ All colors MUST be HSL.
     --popover: 30 10% 15%;
     --popover-foreground: 36 20% 96%;
 
-    --primary: 100 15% 56%;
+    --primary: 201 78% 26%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 10% 20%;
@@ -75,7 +75,7 @@ All colors MUST be HSL.
     --muted: 30 10% 20%;
     --muted-foreground: 30 8% 65%;
 
-    --accent: 100 15% 56%;
+    --accent: 201 78% 26%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
@@ -83,11 +83,11 @@ All colors MUST be HSL.
 
     --border: 30 10% 25%;
     --input: 30 10% 25%;
-    --ring: 100 15% 56%;
+    --ring: 201 78% 26%;
 
-    --sage: 100 15% 56%;
-    --sage-light: 100 20% 66%;
-    --sage-dark: 100 15% 46%;
+    --care-blue: 201 78% 26%;
+    --care-blue-light: 201 60% 40%;
+    --care-blue-dark: 201 78% 20%;
     --cream: 30 10% 20%;
     --warm-gray: 0 0% 85%;
     --gold: 40 40% 60%;

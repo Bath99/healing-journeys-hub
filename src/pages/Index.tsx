@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { base44 } from "@/api/base44Client";
+import logo from "@/assets/logo.png";
 
 export default function Index() {
   const [formData, setFormData] = useState({
@@ -82,17 +83,19 @@ This message was sent from your therapy website contact form.
       >
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 animate-fade-in">
-            <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-accent p-1">
-              <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-                <Heart className="w-16 h-16 text-primary" />
-              </div>
-            </div>
+            <img 
+              src={logo} 
+              alt="We Care Mental Health Counselling Logo" 
+              className="w-32 h-32 mx-auto mb-8"
+            />
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extralight text-foreground mb-6 tracking-tight">
-            Your Journey to
-            <span className="block mt-2 font-light text-primary">
-              Healing & Growth
+            <span className="block text-care-blue-light font-medium">
+              We Care
+            </span>
+            <span className="block mt-2 font-light text-foreground">
+              Mental Health Counselling
             </span>
           </h1>
           
