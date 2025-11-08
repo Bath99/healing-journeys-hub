@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { base44 } from "@/api/base44Client";
 import logo from "@/assets/logo.png";
 
 export default function Index() {
@@ -14,48 +13,6 @@ export default function Index() {
     phone: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(false);
-    
-    const { name, email, phone, message } = formData;
-
-    try {
-      await base44.integrations.Core.SendEmail({
-        to: "angadtoor25@gmail.com",
-        subject: `New Contact Form Submission from ${name}`,
-        body: `
-You have received a new message from your website contact form:
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-
-Message:
-${message}
-
----
-This message was sent from your therapy website contact form.
-        `,
-        from_name: "Website Contact Form",
-      });
-      
-      setSubmitSuccess(true);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    } catch (error) {
-      console.error("Failed to send email:", error);
-      setSubmitError(true);
-      setTimeout(() => setSubmitError(false), 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const specialties = [
     { title: "Anxiety", icon: Cloud },
@@ -350,30 +307,20 @@ This message was sent from your therapy website contact form.
 
           <Card className="border-none shadow-xl bg-card">
             <CardContent className="p-8 md:p-12">
-              {submitSuccess && (
-                <div className="mb-6 p-4 bg-care-blue/10 border border-care-blue/20 rounded-lg text-care-blue-dark text-center">
-                  Thank you for reaching out! I'll get back to you within 24-48 hours.
-                </div>
-              )}
-              
-              {submitError && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-center">
-                  Sorry, there was an error sending your message. Please try again or contact me directly at angadtoor25@gmail.com or (289) 769-1989.
-                </div>
-              )}
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label className="block text-sm font-light text-foreground mb-2">
                     Full Name *
                   </label>
-                  <Input
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="font-light"
-                    placeholder="Your name"
-                  />
+                    <Input
+                      required
+                      name="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="font-light"
+                      placeholder="Your name"
+                    />
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -384,6 +331,7 @@ This message was sent from your therapy website contact form.
                     <Input
                       type="email"
                       required
+                      name="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="font-light"
@@ -397,6 +345,7 @@ This message was sent from your therapy website contact form.
                     </label>
                     <Input
                       type="tel"
+                      name="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="font-light"
@@ -411,6 +360,7 @@ This message was sent from your therapy website contact form.
                   </label>
                   <Textarea
                     required
+                    name="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="font-light min-h-[150px]"
@@ -420,10 +370,9 @@ This message was sent from your therapy website contact form.
                 
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
                   className="w-full py-6 text-lg font-light rounded-full shadow-lg hover:shadow-xl"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  Send Message
                 </Button>
                 
                 <p className="text-xs text-muted-foreground text-center font-light">
